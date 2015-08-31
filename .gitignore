@@ -1,0 +1,14 @@
+*.pyc
+__pycache__/
+/README.html
+
+venv/
+venv2/
+venv3/
+
+# OS files
+*~
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
