@@ -1,8 +1,9 @@
 from django.http import HttpResponse
+from django.utils import timezone
 import json
 
 def index(request):
-	format_str = "URL:\n{url}\n\nURL with querystring:\n{full_url}\n\nMETHOD:\n{method}\n\nHEADERS:\n{headers}\n\nBODY:\n{body}\n\nCOOKIES:\n{cookies}\n\nQUERYSTRING:\n{qstr}\n\nPOST DATA:\n{post}\n"
+	format_str = "URL:\n{url}\n\nURL with querystring:\n{full_url}\n\nMETHOD:\n{method}\n\nHEADERS:\n{headers}\n\nBODY:\n{body}\n\nCOOKIES:\n{cookies}\n\nQUERYSTRING:\n{qstr}\n\nPOST DATA:\n{post}\n\nSERVER TIME in UTC:\n{sutime}\n\n"
 
 	http_headers = {}
 	for key,value in request.META.items():
@@ -20,5 +21,5 @@ def index(request):
 	cookies = json.dumps(request.COOKIES,indent=2)
 
 	response_str = format_str.format(url=request.path, full_url=request.get_full_path(), method=request.method,
-		headers=headers_str, body=request.body, cookies=cookies, qstr=qstr, post=post)
+		headers=headers_str, body=request.body, cookies=cookies, qstr=qstr, post=post, sutime=timezone.now())
 	return HttpResponse(response_str, content_type='text/plain')
