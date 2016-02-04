@@ -5,6 +5,7 @@ __pycache__/
 venv/
 venv2/
 venv3/
+echo_server/local/
 
 # OS files
 *~
