@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from django.http import HttpResponse
 from django.utils import timezone
 import json
