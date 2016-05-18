@@ -9,6 +9,7 @@ echo_server/local/
 
 # OS files
 *~
+*.sw[po]
 Desktop.ini
 .DS_Store
 .AppleDouble
