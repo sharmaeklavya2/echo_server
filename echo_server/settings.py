@@ -18,7 +18,7 @@ try:
 	with open(os.path.join(CONF_DIR, "local", "secret_key.txt")) as _secret_key_file:
 		SECRET_KEY = _secret_key_file.read().strip()
 		DEBUG = False
-except OSError:
+except (OSError, IOError):
 	print("Using default secret key (this is insecure)", file=sys.stderr)
 
 # Application definition
